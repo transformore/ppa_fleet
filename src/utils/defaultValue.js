@@ -1,0 +1,45 @@
+export default {
+  fontSize: {
+    ultraSmall: 4,
+    extraSmall: 8,
+    small: 12,
+    medium: 14,
+    large: 16,
+    extraLarge: 18,
+    ultraLarge: 20,
+  },
+  spacing: {
+    extraSmall: 4,
+    small: 8,
+    medium: 12,
+    large: 16,
+    extraLarge: 24,
+    ultraLarge: 32,
+  },
+  icon: {
+    small: 12,
+    medium: 16,
+    large: 24,
+    extraLarge: 32,
+    ultraLarge: 40,
+  },
+  borderRadius: {
+    small: 4,
+    medium: 8,
+    large: 16,
+    extraLarge: 32,
+    circle: 1000,
+  },
+  fontWeight: {
+    light: '200',
+    regular: '400',
+    medium: '500',
+    lightBold: '600',
+    bold: '700',
+    extraBold: '800',
+  },
+  ios: {
+    statusBarHeight: 50,
+    bottomBar: 32,
+  },
+};
