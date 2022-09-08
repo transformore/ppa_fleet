@@ -6,6 +6,8 @@ import styles from './styles';
 import Geolocation from 'react-native-geolocation-service';
 import { locationActions } from '../../../redux/locationSlice';
 import { currentLocationImage } from '../../../assets/images';
+import Row from '../../atoms/Row';
+import Typhography from '../../atoms/Typography';
 
 const OptionControlBottomSheet = () => {
   const bottomSheetRef = useRef(null);
@@ -38,14 +40,17 @@ const OptionControlBottomSheet = () => {
         <BottomSheetScrollView
           style={styles.optionControl}
           contentContainerStyle={styles.optionControlContainer}>
-          <TouchableOpacity
-            onPress={handleGetCurrentLocation}
-            disabled={disabledCurrentLocation}>
-            <Image
-              source={currentLocationImage}
-              style={styles.currentLocationImage}
-            />
-          </TouchableOpacity>
+          <Row extendStyle={styles.spaceBetween}>
+            <Typhography text="List Lokasi" fontSize="large" variant="bold" />
+            <TouchableOpacity
+              onPress={handleGetCurrentLocation}
+              disabled={disabledCurrentLocation}>
+              <Image
+                source={currentLocationImage}
+                style={styles.currentLocationImage}
+              />
+            </TouchableOpacity>
+          </Row>
         </BottomSheetScrollView>
       </BottomSheet>
     </View>

@@ -11,7 +11,6 @@ export default StyleSheet.create({
     flex: 1,
   },
   currentLocationImage: {
-    alignSelf: 'flex-end',
     height: 40,
     width: 40,
   },
@@ -20,5 +19,8 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
     bottom: 0,
+  },
+  spaceBetween: {
+    justifyContent: 'space-between',
   },
 });

@@ -4,7 +4,9 @@ import RNMapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import MyCurrentLocationMark from '../../components/molecules/MyCurrentLocationMark';
 import { locationSelector } from '../../redux/locationSlice';
+import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
+import { env } from '../../../env';
 
 const MapView = ({ coords }) => {
   const mapRef = useRef(null);
@@ -23,6 +25,8 @@ const MapView = ({ coords }) => {
     pitch: 0,
     zoom: 11,
   };
+
+  const handleOpenModalSaveLocation = () => {};
 
   useEffect(() => {
     if (!!coords && mapRef.current) {
@@ -71,7 +75,11 @@ const MapView = ({ coords }) => {
         {!!coords && <MyCurrentLocationMark coords={coords} />}
         {chooseLocation && (
           <>
-            <Marker coordinate={chooseLocation} flat identifier="My Mark">
+            <Marker
+              coordinate={chooseLocation}
+              flat
+              title="Pilih Lokasi"
+              onPress={handleOpenModalSaveLocation}>
               <View style={styles.dotContainer}>
                 <View style={styles.dot2} />
                 <View style={styles.arrowDown} />
@@ -79,6 +87,12 @@ const MapView = ({ coords }) => {
             </Marker>
           </>
         )}
+        <MapViewDirections
+          origin={coords}
+          destination={chooseLocation}
+          apikey={env.GOOGLE_MAPS_API_KEY}
+          strokeWidth={3}
+        />
       </RNMapView>
     </View>
   );
