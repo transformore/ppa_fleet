@@ -1,26 +1,39 @@
 import React from 'react';
-import { View } from 'react-native';
-import * as Progress from 'react-native-progress';
+import { ActivityIndicator, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadingActions } from '../../../redux/loading';
+import { loadingActions } from '../../../redux/loadingSlice';
+import colors from '../../../utils/colors';
+import Typhography from '../Typography';
 import styles from './styles';
 
 const GlobalLoading = () => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(state => state.loading.isLoading);
+  const loadingSelector = useSelector(state => state.loading);
 
-  if (isLoading) {
+  if (loadingSelector.isLoading) {
     setTimeout(() => {
-      dispatch(loadingActions.setIsLoading(false));
+      dispatch(
+        loadingActions.setLoading({
+          isLoading: false,
+          text: '',
+        }),
+      );
     }, 10000);
 
     return (
       <View style={styles.container}>
-        <Progress.Bar indeterminate={true} width={200} />
+        <ActivityIndicator size="large" color={colors.text.white} />
+        <Typhography
+          text={loadingSelector.text}
+          variant="bold"
+          fontSize="extra-large"
+          color="white"
+        />
       </View>
     );
   }
+
   return null;
 };
 

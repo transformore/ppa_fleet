@@ -4,6 +4,7 @@ import React from 'react';
 import SplashScreen from '../screens/Splash';
 import HomeScreen from '../screens/Home';
 import BottomTabBar from '../components/molecules/BottomTabBar';
+import LoginScreen from '../screens/Login';
 
 function BottomTabNavigator() {
   const { Navigator, Screen } = createBottomTabNavigator();
@@ -28,6 +29,7 @@ const Routes = () => {
         headerShown: false,
       }}>
       <Screen name="Splash" component={SplashScreen} />
+      <Screen name="Login" component={LoginScreen} />
       <Screen name="Main" component={BottomTabNavigator} />
     </Navigator>
   );

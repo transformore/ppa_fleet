@@ -1,6 +1,12 @@
 import { io } from 'socket.io-client';
 
-const URL = 'http://localhost:3000';
-const socket = io(URL, { autoConnect: false });
+const URL_TRANSPORTATION = 'https://socket-fleet.herokuapp.com/transportations';
+
+const socket = {
+  transportations: io(URL_TRANSPORTATION, {
+    autoConnect: false,
+    transports: ['websocket'],
+  }),
+};
 
 export default socket;

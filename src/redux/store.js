@@ -11,9 +11,13 @@ import {
 } from 'redux-persist';
 import { locationReducer } from './locationSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { loadingReducer } from './loadingSlice';
+import { userReducer } from './userSlice';
 
 const rootReducer = combineReducers({
   location: locationReducer,
+  loading: loadingReducer,
+  user: userReducer,
 });
 
 const persistConfig = {

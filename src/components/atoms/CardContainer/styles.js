@@ -7,5 +7,6 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundColor.primary,
     borderRadius: defaultValue.borderRadius.medium,
     padding: defaultValue.spacing.medium,
+    elevation: 1,
   },
 });

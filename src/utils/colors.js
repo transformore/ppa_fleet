@@ -4,7 +4,7 @@ const colorNames = {
   gray: '#808080',
   indigo: '#6d46f0',
   transparent: 'rgba(255, 255, 255, 0.1)',
-  transparent2: 'rgba(255, 255, 255, 0.6)',
+  transparent2: 'rgba(0, 0, 0, 0.5)',
   transparentInput: 'rgba(0, 0, 0, 0.3)',
   blue: '#00a2c6',
   stone: '#252626',
@@ -15,10 +15,12 @@ const colorNames = {
   turquoiseSurf: '#00B9D4',
   darkGray: '#3b4145',
   yellow: '#F7B217',
+  yellow2: '#edfa75',
   darkOrange: '#ff9100',
   darkBlue: '#00A2C6',
   lightGray2: '#ebebeb',
   midGray: '#dcdde1',
+  purple: '#ff69f2',
 };
 
 export default {
@@ -62,6 +64,8 @@ export default {
     darkOrange: colorNames.darkOrange,
     darkGray: colorNames.darkGray,
     midGray: colorNames.midGray,
+    purple: colorNames.purple,
+    yellow: colorNames.yellow2,
   },
   card: {
     primary: colorNames.white,

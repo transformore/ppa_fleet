@@ -118,14 +118,23 @@ function fontSizeButton(size) {
   }
 }
 
-const Button = ({ onPress, title, width = '100%', height = 40, type, fontSize = 'medium' }) => {
+const Button = ({
+  onPress,
+  title,
+  width = '100%',
+  height = 40,
+  type,
+  fontSize = 'medium',
+}) => {
   const { color, ...typeBtn } = typeButton(type);
   return (
     <TouchableOpacity
       style={[styles.buttonContainer, typeBtn, { width, height }]}
       onPress={onPress}
       disabled={type === 'disabled'}>
-      <Text style={[styles.buttonText, fontSizeButton(fontSize), { color }]}>{title}</Text>
+      <Text style={[styles.buttonText, fontSizeButton(fontSize), { color }]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -7,7 +7,7 @@ import styles from './styles';
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
-      navigation.replace('Main');
+      navigation.replace('Login');
     }, 2000);
 
     return () => {

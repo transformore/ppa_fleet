@@ -7,11 +7,14 @@ import { locationSelector } from '../../redux/locationSlice';
 import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 import { env } from '../../../env';
+import socket from '../../../socket';
+import TransportationLocationMark from '../../components/molecules/TransportationLocationMark';
 
 const MapView = ({ coords }) => {
   const mapRef = useRef(null);
 
   const [chooseLocation, setChooseLocation] = useState(null);
+  const [userLocation, setUserLocation] = useState([]);
 
   const location = useSelector(locationSelector);
 
@@ -62,6 +65,19 @@ const MapView = ({ coords }) => {
     setChooseLocation(e.nativeEvent.coordinate);
   };
 
+  useEffect(() => {
+    socket.transportations.emit('transportation:locations');
+    socket.transportations.on('transportation:locations', payload => {
+      setUserLocation(payload);
+    });
+
+    return () => {
+      socket.transportations.off('transportation:locations');
+    };
+  }, []);
+
+  console.log(userLocation[0]);
+
   return (
     <View style={styles.container}>
       <RNMapView
@@ -87,6 +103,18 @@ const MapView = ({ coords }) => {
             </Marker>
           </>
         )}
+        {userLocation.length !== 0 &&
+          userLocation.map(item => {
+            return (
+              <TransportationLocationMark
+                key={item.id}
+                name={item.name}
+                latitude={item.location.latitude}
+                longitude={item.location.longitude}
+              />
+            );
+          })}
+
         <MapViewDirections
           origin={coords}
           destination={chooseLocation}
