@@ -6,6 +6,7 @@ const socket = {
   transportations: io(URL_TRANSPORTATION, {
     autoConnect: false,
     transports: ['websocket'],
+    reconnection: true,
   }),
 };
 

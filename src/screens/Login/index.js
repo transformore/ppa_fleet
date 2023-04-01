@@ -30,7 +30,7 @@ const LoginScreen = () => {
   useEffect(() => {
     helper.isSocketConnected();
   }, []);
-
+  //"latitude": -6.3264655, "longitude": 106.6535628
   useEffect(() => {
     helper.hasLocationPermission().then(bool => {
       if (bool) {
@@ -63,8 +63,8 @@ const LoginScreen = () => {
     socket.transportations.emit('transportation:join', {
       name,
       location: {
-        latitude: location.latitude,
-        longitude: location.longitude,
+        latitude: -6.3264655,
+        longitude: 106.6635628,
       },
     });
 
